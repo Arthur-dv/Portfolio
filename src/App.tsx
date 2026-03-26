@@ -245,7 +245,7 @@ export default function App() {
           <SectionCard id="about" title="sobre.exe" register={registerSection}>
             <div className="grid gap-4 md:grid-cols-[132px_1fr]">
               <img
-                src="/arthurviana.jpg"
+                src={`${import.meta.env.BASE_URL}arthurviana.jpg`}
                 alt="Arthur Viana"
                 className="h-32 w-32 rounded-lg border-2 border-ui-border object-cover"
               />
