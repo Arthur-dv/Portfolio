@@ -82,15 +82,19 @@ Abre o endereço que o Vite indicar (normalmente `http://localhost:5173`).
 
 O output de `npm run build` fica em **`dist/`** (HTML, JS e CSS já empacotados — **não** o `main.tsx` da pasta `src/`).
 
-### GitHub Pages (recomendado neste repo)
+### GitHub Pages (neste repo)
 
-O **404 em `main.tsx`** no browser acontece quando o GitHub serve o **código-fonte** do repositório em vez da pasta **`dist/`** gerada pelo build. O `index.html` da raiz aponta para `/src/main.tsx` (só válido no `npm run dev`); em produção o Vite gera scripts em `/Portfolio/assets/...`.
+O **404 em `main.tsx`** aparece quando o GitHub Pages serve a **branch `main`** (o `index.html` da raiz com `/src/main.tsx`). O build correto está em **`dist/`** após `npm run build`.
 
-1. No repositório: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Faz push da branch `main` (ou `master`). O workflow em [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) corre `npm run build` e publica o conteúdo de **`dist/`**.
-3. O site fica em **`https://arthur-dv.github.io/Portfolio/`** (ajusta o URL se o nome do repo ou do utilizador for outro).
+Este projeto usa um workflow que faz o build e envia o conteúdo de **`dist/`** para a branch **`gh-pages`**. O site deve usar **essa** branch, não a `main`.
 
-O ficheiro [`vite.config.ts`](vite.config.ts) usa `base: '/Portfolio/'` em produção para os ficheiros carregarem bem nesse caminho. Se o teu repositório tiver **outro nome** (por exemplo `portfolio` em minúsculas), altera esse valor para `'/nome-do-repo/'`.
+1. Faz **push** (o workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) corre sozinho).
+2. **Settings → Pages → Build and deployment**:
+   - **Source:** **Deploy from a branch** (não uses “só” GitHub Actions com artefacto se o site ainda mostrar `main.tsx`).
+   - **Branch:** **`gh-pages`** → pasta **`/ (root)`** → **Save**.
+3. Espera 1–2 minutos e abre o URL que aparece em Pages (ex.: **`https://arthur-dv.github.io/Portfolio/`**).
+
+O [`vite.config.ts`](vite.config.ts) usa `base: '/Portfolio/'` em produção. Se o nome do repositório no GitHub for outro, altera para `'/nome-exato-do-repo/'`.
 
 ### Outras hospedagens (Vercel, Netlify, etc.)
 
