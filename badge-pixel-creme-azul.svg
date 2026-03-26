@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304 56" width="304" height="56" shape-rendering="crispEdges">
+  <rect width="304" height="56" fill="#0d0d0d"/>
+  <rect x="0" y="52" width="300" height="4" fill="#171717"/>
+  <rect x="300" y="0" width="4" height="52" fill="#171717"/>
+  <rect x="0" y="0" width="300" height="52" fill="#fcf6eb" stroke="#2a2a2a" stroke-width="2"/>
+  <rect x="8" y="8" width="284" height="36" fill="#3282ce" stroke="#2563a8" stroke-width="2"/>
+  <rect x="16" y="16" width="8" height="8" fill="#fcf6eb"/>
+  <rect x="28" y="16" width="8" height="8" fill="#fcf6eb"/>
+  <rect x="40" y="16" width="8" height="8" fill="#fcf6eb"/>
+  <text x="150" y="34" text-anchor="middle" fill="#ffffff" font-family="ui-monospace, monospace" font-size="12" font-weight="bold">MEU PORTFOLIO</text>
+</svg>
