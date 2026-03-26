@@ -77,29 +77,6 @@ Abre o endereço que o Vite indicar (normalmente `http://localhost:5173`).
 | `npm run preview` | Servir o build localmente para testar antes do deploy |
 
 ---
-
-## Deploy
-
-O output de `npm run build` fica em **`dist/`** (HTML, JS e CSS já empacotados — **não** o `main.tsx` da pasta `src/`).
-
-### GitHub Pages (neste repo)
-
-O **404 em `main.tsx`** aparece quando o GitHub Pages serve a **branch `main`** (o `index.html` da raiz com `/src/main.tsx`). O build correto está em **`dist/`** após `npm run build`.
-
-Este projeto usa um workflow que faz o build e envia o conteúdo de **`dist/`** para a branch **`gh-pages`**. O site deve usar **essa** branch, não a `main`.
-
-1. Faz **push** (o workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) corre sozinho).
-2. **Settings → Pages → Build and deployment**:
-   - **Source:** **Deploy from a branch** (não uses “só” GitHub Actions com artefacto se o site ainda mostrar `main.tsx`).
-   - **Branch:** **`gh-pages`** → pasta **`/ (root)`** → **Save**.
-3. Espera 1–2 minutos e abre o URL que aparece em Pages (ex.: **`https://arthur-dv.github.io/Portfolio/`**).
-
-O [`vite.config.ts`](vite.config.ts) usa `base: '/Portfolio/'` em produção. Se o nome do repositório no GitHub for outro, altera para `'/nome-exato-do-repo/'`.
-
-### Outras hospedagens (Vercel, Netlify, etc.)
-
-Define o diretório de publicação como **`dist`**, o comando de build como **`npm run build`**, e em **Vercel/Netlify** costuma usar-se `base: '/'` — nesse caso remove ou ajusta o `base` em `vite.config.ts` para coincidir com o URL do site.
-
 ---
 
 ## Estrutura do repositório (resumo)
