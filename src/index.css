@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Press+Start+2P&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Press Start 2P", monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-ui-cream: #fcf6eb;
+  --color-ui-panel: #fff6e2;
+  --color-ui-ink: #171717;
+  --color-ui-muted: #3a3a3a;
+  --color-ui-border: #2a2a2a;
+  --color-ui-bar: #333333;
+  --color-ui-blue: #3282ce;
+  --color-ui-blue-dark: #2563a8;
+  --color-ui-orange: #e67e22;
+  --color-ui-orange-dark: #b85c12;
+  --color-ui-yellow: #ffd24a;
+}
+
+body {
+  @apply bg-ui-cream text-ui-ink antialiased;
+}
+
+@keyframes pressStart {
+  0%,
+  100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.animate-press-start {
+  animation: pressStart 2.1s ease-in-out infinite;
+}
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+}
+
+.section-show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 420ms ease,
+    transform 520ms ease;
+}
+
+.btn-pixel {
+  font-family: var(--font-pixel);
+  border-style: solid;
+  border-width: 2px 3px 4px 2px;
+  border-color: var(--color-ui-border);
+  border-radius: 0;
+  clip-path: polygon(
+    0 3px,
+    2px 3px,
+    2px 2px,
+    3px 2px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 2px,
+    calc(100% - 2px) 2px,
+    calc(100% - 2px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 3px) calc(100% - 2px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 2px),
+    2px calc(100% - 2px),
+    2px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    border-width 0.08s ease;
+}
+
+.btn-pixel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28);
+}
+
+.btn-pixel:active {
+  transform: translate(0, 2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+  border-width: 2px 2px 2px 2px;
+}
+
+.btn-pixel-on {
+  background: var(--color-ui-blue);
+  color: #fff;
+  border-color: var(--color-ui-blue-dark);
+}
+
+.btn-pixel-on:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28);
+}
+
+.btn-pixel-blue {
+  background: var(--color-ui-blue);
+  color: #fff;
+  border-color: var(--color-ui-blue-dark);
+}
+
+.btn-pixel-orange {
+  background: var(--color-ui-orange);
+  color: #fff;
+  border-color: var(--color-ui-orange-dark);
+}
+
+.nav-btn {
+  @apply cursor-pointer px-3 py-2 text-[10px] font-normal tracking-wide;
+  font-family: var(--font-pixel);
+  border-style: solid;
+  border-width: 2px 3px 4px 2px;
+  border-color: var(--color-ui-border);
+  border-radius: 0;
+  clip-path: polygon(
+    0 3px,
+    2px 3px,
+    2px 2px,
+    3px 2px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 2px,
+    calc(100% - 2px) 2px,
+    calc(100% - 2px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 3px) calc(100% - 2px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 2px),
+    2px calc(100% - 2px),
+    2px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  background: var(--color-ui-panel);
+  color: var(--color-ui-ink);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-width 0.12s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28);
+}
+
+.nav-btn:active {
+  transform: translate(0, 2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+  border-width: 2px 2px 2px 2px;
+}
+
+.nav-btn-on {
+  background: var(--color-ui-blue);
+  color: #fff;
+  border-color: var(--color-ui-blue-dark);
+}
+
+.kpi-card {
+  @apply rounded-lg border p-3;
+  border-color: var(--color-ui-border);
+  background: var(--color-ui-panel);
+}
+
+.kpi-value {
+  @apply text-xl font-bold text-ui-bar;
+}
+
+.kpi-label {
+  @apply mt-1 block text-xs uppercase tracking-wide text-ui-muted;
+}
+
+.filter-btn {
+  @apply cursor-pointer px-3 py-2 text-[10px];
+  font-family: var(--font-pixel);
+  border-style: solid;
+  border-width: 2px 3px 4px 2px;
+  border-color: var(--color-ui-border);
+  border-radius: 0;
+  clip-path: polygon(
+    0 3px,
+    2px 3px,
+    2px 2px,
+    3px 2px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 2px,
+    calc(100% - 2px) 2px,
+    calc(100% - 2px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 3px) calc(100% - 2px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 2px),
+    2px calc(100% - 2px),
+    2px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  background: var(--color-ui-panel);
+  color: var(--color-ui-ink);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-width 0.12s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28);
+}
+
+.filter-btn:active {
+  transform: translate(0, 2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+  border-width: 2px 2px 2px 2px;
+}
+
+.filter-btn-on {
+  background: var(--color-ui-blue);
+  color: #fff;
+  border-color: var(--color-ui-blue-dark);
+}
+
+.tag-pill {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  line-height: 1;
+  padding: 6px 8px;
+  border-style: solid;
+  border-width: 2px 3px 4px 2px;
+  border-color: var(--color-ui-border);
+  background: #fff;
+  color: var(--color-ui-ink);
+  border-radius: 0;
+  clip-path: polygon(
+    0 3px,
+    2px 3px,
+    2px 2px,
+    3px 2px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 2px,
+    calc(100% - 2px) 2px,
+    calc(100% - 2px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 3px) calc(100% - 2px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 2px),
+    2px calc(100% - 2px),
+    2px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.22);
+}
