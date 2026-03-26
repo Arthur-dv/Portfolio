@@ -6,6 +6,8 @@
 
 **Site pessoal** com visual **pixel art + janelas estilo macOS**, tema creme e integração com a **API pública do GitHub** para listar repositórios.
 
+[![Abrir o site — Meu portfólio](docs/badge-meu-portfolio.svg)](https://arthur-dv.github.io/Portfolio/)
+
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -78,7 +80,21 @@ Abre o endereço que o Vite indicar (normalmente `http://localhost:5173`).
 
 ## Deploy
 
-O output de `npm run build` fica em **`dist/`**. Podes publicar em **GitHub Pages**, **Vercel**, **Netlify** ou qualquer hospedagem estática: define o diretório de publicação como `dist` e o comando de build como `npm run build`.
+O output de `npm run build` fica em **`dist/`** (HTML, JS e CSS já empacotados — **não** o `main.tsx` da pasta `src/`).
+
+### GitHub Pages (recomendado neste repo)
+
+O **404 em `main.tsx`** no browser acontece quando o GitHub serve o **código-fonte** do repositório em vez da pasta **`dist/`** gerada pelo build. O `index.html` da raiz aponta para `/src/main.tsx` (só válido no `npm run dev`); em produção o Vite gera scripts em `/Portfolio/assets/...`.
+
+1. No repositório: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Faz push da branch `main` (ou `master`). O workflow em [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) corre `npm run build` e publica o conteúdo de **`dist/`**.
+3. O site fica em **`https://arthur-dv.github.io/Portfolio/`** (ajusta o URL se o nome do repo ou do utilizador for outro).
+
+O ficheiro [`vite.config.ts`](vite.config.ts) usa `base: '/Portfolio/'` em produção para os ficheiros carregarem bem nesse caminho. Se o teu repositório tiver **outro nome** (por exemplo `portfolio` em minúsculas), altera esse valor para `'/nome-do-repo/'`.
+
+### Outras hospedagens (Vercel, Netlify, etc.)
+
+Define o diretório de publicação como **`dist`**, o comando de build como **`npm run build`**, e em **Vercel/Netlify** costuma usar-se `base: '/'` — nesse caso remove ou ajusta o `base` em `vite.config.ts` para coincidir com o URL do site.
 
 ---
 
