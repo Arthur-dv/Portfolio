@@ -77,7 +77,6 @@ Abre o endereço que o Vite indicar (normalmente `http://localhost:5173`).
 | `npm run preview` | Servir o build localmente para testar antes do deploy |
 
 ---
----
 
 ## Estrutura do repositório (resumo)
 
